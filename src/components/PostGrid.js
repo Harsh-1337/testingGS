@@ -7,7 +7,7 @@ const PostGrid = ({ posts, inActive }) => {
   return (
     <div className={inActive === "1" ? "inActive" : "gridParent"}>
       <div className="gridChild">
-        {posts.map((post) => {
+        {posts.length === 0 ?<></>:posts.map((post) => {
           return <Post key={post.postID} inActive={inActive} postData={post} />;
         })}
       </div>

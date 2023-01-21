@@ -18,7 +18,7 @@ const Post = ({ postData, inActive }) => {
       <div className="creator">
         <p className="creatr">
           <AccountCircleIcon />
-          {postData.username}
+          {postData.username ?? "gaurav"}
         </p>
         {inActive !== "1" ? (
           <Link className="link" to={`/post/${postData.postID}/${inActive}`}>
@@ -32,13 +32,13 @@ const Post = ({ postData, inActive }) => {
       <div className="content">
         <div className="left">
           <p className="contentText">{postData.postTitle}</p>
-          <p className="contentText">Created on: {postData.createdAt}</p>
+          <p className="contentText">Created on: {postData.createdAt ?? "23-01-2023"}</p>
         </div>
         <div className="right">
           <div className="likes">
             <div>
               <FavoriteIcon sx={{ color: "red" }} />
-              <p className="count">{postData.postLikes}</p>
+              <p className="count">{postData.postLikes ?? "0"}</p>
             </div>
           </div>
         </div>
