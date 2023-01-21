@@ -3,8 +3,11 @@ import CreateForm from "../styled-components/CreateForm";
 import FileBase from "react-file-base64";
 import GreatShareService from "../API/api";
 import "../CSS/Create.css";
+import { useUserContext } from "../context/user_context";
+import { v4 as uuidv4 } from 'uuid';
 
 const CreatePost = ({ user }) => {
+  const { moderation, setModeration } = useUserContext();
   const [postData, setPostData] = useState({
     postTitle: "",
     postContent: "",
@@ -12,30 +15,25 @@ const CreatePost = ({ user }) => {
   });
 
   const HandleSubmit = (e) => {
+    let id = uuidv4();
     e.preventDefault();
-    console.log(postData);
+    // setModeration([...moderation, {
+    //   postID: id,
+    //   postTitle: postData.postTitle,
+    //   postContent: postData.postContent,
+    //   postImage: postData.postImage
+    // }]);
+    localStorage.setItem('moderation', JSON.stringify([{
+      postID: id,
+      postTitle: postData.postTitle,
+      postContent: postData.postContent,
+      postImage: postData.postImage
+    }]));
     setPostData({
       postTitle: "",
       postContent: "",
       postImage: "",
     });
-    // try {
-    //   const res = await GreatShareService.createPost({
-    //     userID: user.userID,
-    //     username: user.username,
-    //     postTitle: postData.postTitle,
-    //     postContent: postData.postContent,
-    //     postImage: postData.postImage,
-    //   });
-
-    //   if (res[0] === false) {
-    //     throw new Error(res[1]);
-    //   }
-    //   // TODO: alert
-    // } catch (error) {
-    //   // TODO: alert
-    //   console.log(error);
-    // }
   };
 
   return (

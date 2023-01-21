@@ -6,6 +6,10 @@ const UserContext = React.createContext();
 export const UserProvider = ({ children }) => {
   const [authenticated, setAuthenticated] = useState(true);
   const [user, setUser] = useState(profile);
+  const [moderation, setModeration] = useState([]);
+  const [post, setPost] = useState([]);
+  const [review, setReview] = useState([]);
+  const [userInput, setUserInput] = useState([]);
 
   // const [user, setUser] = useState({
   //   userID: "",
@@ -22,7 +26,9 @@ export const UserProvider = ({ children }) => {
   // }, [authenticated]);
   return (
     <UserContext.Provider
-      value={{ user, authenticated, setAuthenticated, setUser }}
+      value={{ user, authenticated, setAuthenticated, setUser, 
+        moderation, setModeration, post, setPost, review, setReview, 
+        userInput, setUserInput }}
     >
       {children};
     </UserContext.Provider>
