@@ -1,0 +1,116 @@
+#red{
+    color: red;
+}
+#green{
+    color: yellowgreen;
+}
+.landingParent{
+    display: flex;
+    height: 90vh;
+    overflow-x: hidden;
+}
+.landingText{
+    text-align: center;
+    padding: 0px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+}
+.landingText h1{
+    font-size: 5rem;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.landingText h2{
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.exploreLink{
+    font-size: 1.6rem;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 2 ease-out;
+    font-family: 'Kanit', sans-serif;
+    
+}
+.exploreIcon{
+    padding-top: 7px;
+    transition: none;
+    color: #3AB0FF;
+}
+.exploreIcon :hover{
+    transform: none;
+}
+.exploreDiv{
+    transition: all 1s ease-in-out;
+    width: fit-content;
+}
+.exploreDiv :hover{
+    transform:scale(1.5) ;
+    transition-duration: 1s;
+}
+.exploreDiv:hover .exploreIcon{
+    transition-delay: 1s;
+    transition-duration: 0.5s;
+    display: none;
+}
+.arrow2{
+    display:none;
+}
+.exploreDiv:hover .arrow2 {
+    display: block;
+    transform: scale(2);
+    margin-left: 10px;
+    padding-top: 4px;
+    color: #3AB0FF;
+}
+.landingImages{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.landingImg1{
+    height: 60vh;
+    width: 40%;
+    opacity: 0.8;
+    animation: 2s ease-in 0.5s 1 rotate;
+    transition: all 2s;
+    transform: rotate(-10deg);
+}
+@keyframes rotate {
+    0% {
+            opacity: 0;
+            transform: translate(-100%) rotate(0);
+        }   
+        100% {
+            opacity: 0.8;
+            transform: translate(0) rotate(-10deg);
+        }
+                               
+}
+
+.landingImg2{
+    height: 60vh;
+    width: 40%;
+    animation: 2s ease-in 0.5s 1 rotate2;
+    transform: rotate(10deg);
+    opacity: 0.8;
+}
+@keyframes rotate2 {
+    0% {
+            opacity: 0;
+            transform:  translate(50%) rotate(0);
+        }
+    
+        100% {
+            opacity: 0.8;
+            transform: translate(0) rotate(10deg);
+        }
+}
